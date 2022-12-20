@@ -19,14 +19,18 @@ class UserSignUpAPIView(APIView):
                     lname=input_data["lname"], 
                     email=input_data["email"], 
                     mobile=input_data["mobile"],
-                    password=input_data["password"])
+                    password=input_data["password"],
+                    is_staff=input_data["is_staff"],
+                    is_admin=input_data["is_admin"],)
         obj.save()
         result = {
-            "id":obj.id,
+            "user_id":obj.user_id,
             "fname":obj.fname,
             "lname":obj.lname,
             "email":obj.email,
-            "mobile":obj.mobile
+            "mobile":obj.mobile,
+            "is_staff":obj.is_staff,
+            "is_admin":obj.is_admin
         }
         result_data = {
             "code" : 201,
@@ -49,11 +53,13 @@ class UserLoginAPIView(APIView):
                 if srl_obj.data:
                     if srl_obj.data["password"]==input_data["password"]:
                         result = {
-                            "id":srl_obj.data["id"],
+                            "user_id":srl_obj.data["user_id"],
                             "fname":srl_obj.data["fname"],
                             "lname":srl_obj.data["lname"],
                             "email":srl_obj.data["email"],
-                            "mobile":srl_obj.data["mobile"]
+                            "mobile":srl_obj.data["mobile"],
+                            "is_staff":srl_obj.data["is_staff"],
+                            "is_admin":srl_obj.data["is_admin"],
                         }
                         result_data = {
                             "code" : 200,
@@ -73,11 +79,13 @@ class UserLoginAPIView(APIView):
                 if srl_obj.data:
                     if srl_obj.data["password"]==input_data["password"]:
                         result = {
-                            "id":srl_obj.data["id"],
+                            "user_id":srl_obj.data["user_id"],
                             "fname":srl_obj.data["fname"],
                             "lname":srl_obj.data["lname"],
                             "email":srl_obj.data["email"],
-                            "mobile":srl_obj.data["mobile"]
+                            "mobile":srl_obj.data["mobile"],
+                            "is_staff":srl_obj.data["is_staff"],
+                            "is_admin":srl_obj.data["is_admin"],
                         }
                         result_data = {
                             "code" : 200,
