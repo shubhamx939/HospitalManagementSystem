@@ -1,6 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
-from LoginSystem.models import User
+from .models import *
 
-admin.site.register(User)
+admin.site.register(Doctor)
+admin.site.register(Nurse)
+admin.site.register(Patient)
+admin.site.register(Pharmacist)
+admin.site.register(Labouratorist)
+admin.site.register(Accountant)
