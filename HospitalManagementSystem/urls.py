@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from LoginSystem import urls as login_urls
+from Functionality import urls as fuctionality_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/', include(login_urls)),
+    path('api/fuctionality/', include(fuctionality_urls)),
 ]
